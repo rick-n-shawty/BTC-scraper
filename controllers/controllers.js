@@ -36,7 +36,7 @@ const Register = async (req, res, next) =>{
         const msg = {
             to: email,
             subject: 'Confirm Email',
-            text: `click on this link ${url}`
+            text: `click on this link <a href = ${url}>VERIFY</a>`
         }
         transport.sendMail(msg, (err, data)=>{
             if(err){
