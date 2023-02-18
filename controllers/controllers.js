@@ -25,7 +25,7 @@ const Register = async (req, res, next) =>{
         if(!email || !password) throw new BAD_REQUEST('please provide all credentials')
         const user = await User.create({email, password})
         const token = jwt.sign({userId: user._id},  process.env.JWT)
-        const url = `http://localhost:5000/api/v1/confirmation/${token}`
+        const url = `https://btc-scraper-auth.onrender.com/api/v1/confirmation/${token}`
         const transport = nodemailer.createTransport({
             service: 'gmail',
             auth: {
