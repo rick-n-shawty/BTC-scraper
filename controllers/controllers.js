@@ -54,7 +54,7 @@ const Confirm = async (req, res) =>{
     if(!token) return res.status(StatusCodes.BAD_REQUEST).send('oops, something went wrong')
     jwt.verify(token, process.env.JWT, async (err, decoded)=>{
         if(err){
-            return res.status(StatusCodes.UNAUTHORIZED).send('oops, somthing went wrong')
+            return res.status(StatusCodes.UNAUTHORIZED).json({msg: 'you are not authorized'})
         }
         console.log(decoded)
         await User.findByIdAndUpdate(decoded.userId, {isConfirmed: true})
