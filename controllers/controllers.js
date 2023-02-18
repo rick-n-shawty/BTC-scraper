@@ -58,7 +58,7 @@ const Confirm = async (req, res) =>{
         }
         console.log(decoded)
         await User.findByIdAndUpdate(decoded.userId, {isConfirmed: true})
-        return res.status(200).send(`Email Verified, please procced to <a href = 'http://localhost:3000/login'>Login page</a>`)
+        return res.status(200).send(`Email Verified, please procced to <a href = 'https://btc-scraper-front.onrender.com/login'>Login page</a>`)
     })
 }
 const StartTrack = async (req, res, next) =>{ 
